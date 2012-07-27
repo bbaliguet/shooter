@@ -1,4 +1,3 @@
-Find urls, call them, log results.
-```
-python shooter.py http://your.domain.com
-```
+Find urls, call them, log results. Python 3.2.2.
+
+	python shooter.py http://your.domain.com
