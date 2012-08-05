@@ -1,6 +1,6 @@
 # PYTHON 3
 # follow links on target website
-import urllib.request, random, re, threading, time, sys
+import urllib.request, random, re, threading, time, sys, http.client
 
 # INIT
 target = sys.argv[1]
@@ -9,6 +9,13 @@ nextUrls = set([target])
 doneUrls = set([])
 pathHistory = {}
 pathHistory[target] = ""
+
+# uncomment to turn HTTP debugging on
+# http.client.HTTPConnection.debuglevel = 1
+
+# install a cookie processor to automatically request with previoulsy set cookies
+opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor())
+urllib.request.install_opener(opener)
 
 lock = threading.Lock()
 threads = 0
